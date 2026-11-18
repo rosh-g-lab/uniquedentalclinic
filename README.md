@@ -16,12 +16,10 @@ Unique Dental Clinic Pvt. Ltd. is an established dental practice situated at Cha
 - **Single Direct Call Action:** A single prominent header Call button (`tel:+9779841930218`) for instantaneous direct telephone calls.
 - **Genuine & Streamlined Sections:**
   1. **Home / Hero:** Welcoming Kathmandu operatory atmosphere with real-time open status badge.
-  2. **Emergency Strip:** Instant assistance for acute dental pain and swelling.
-  3. **Services & Official Fee Schedule:** Complete directory of all 40 dental services and exact fees matching the clinic's official rate board (including Table and Card views, live search, category filtering, and clinic policy notices).
-  4. **Our Doctor:** In-depth profile of Dr. Barun Giri with direct call and verified TikTok profile links.
-  5. **Verified Reviews:** Authentic patient testimonials from residents across Chabahil, Boudha, and Jorpati, linked to Google reviews.
-  6. **FAQ:** Clear answers addressing common patient questions.
-  7. **Location & Contact:** Interactive map embed and operating hours.
+  2. **Services & Official Fee Schedule:** Complete directory of all 40 dental services and exact fees (including Table and Card views, live search, and category filtering).
+  3. **Specialized Technology Spotlight:** Single-Visit Endomotor Rotary RCT and 3-tier Zirconia classification (Monolithic, Layered, Multilayered).
+  4. **Our Doctors & Specialists:** In-depth profiles of Managing Director Dr. Barun Giri and Consultant Prosthodontist Dr. Bibek Khanal.
+  5. **Location & Contact:** Interactive map embed, prominent direct call actions, and operating hours.
 
 ---
 

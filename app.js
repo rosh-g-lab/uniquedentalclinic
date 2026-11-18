@@ -19,6 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 5. Interactive FAQ Accordion
   initFaqAccordion();
+
+  // 6. Handle legacy #hero URL hash redirection to #home
+  if (window.location.hash === '#hero') {
+    window.history.replaceState(null, '', '#home');
+    const homeEl = document.getElementById('home');
+    if (homeEl) {
+      homeEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 });
 
 /**
@@ -83,7 +92,7 @@ function initHeaderScroll() {
 }
 
 /**
- * Mobile drawer toggle
+ * Mobile drawer toggle & accessibility
  */
 function initMobileNav() {
   const toggleBtn = document.getElementById('mobile-nav-toggle');
@@ -91,21 +100,51 @@ function initMobileNav() {
 
   if (!toggleBtn || !navLinks) return;
 
-  toggleBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    const isExpanded = navLinks.classList.contains('active');
-    toggleBtn.setAttribute('aria-expanded', isExpanded);
-    toggleBtn.innerHTML = isExpanded
-      ? `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
-      : `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+  const hamburgerSvg = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+  const closeSvg = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+
+  function closeMenu() {
+    navLinks.classList.remove('active');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    toggleBtn.innerHTML = hamburgerSvg;
+    document.body.classList.remove('mobile-nav-open');
+  }
+
+  function openMenu() {
+    navLinks.classList.add('active');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    toggleBtn.innerHTML = closeSvg;
+    document.body.classList.add('mobile-nav-open');
+  }
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (navLinks.classList.contains('active')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
-  // Close when clicking link
-  navLinks.querySelectorAll('.nav-link').forEach(link => {
+  // Close when clicking any nav link
+  navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      toggleBtn.setAttribute('aria-expanded', 'false');
+      closeMenu();
     });
+  });
+
+  // Close when clicking outside of nav drawer
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !toggleBtn.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  // Close on Escape key press
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+      closeMenu();
+    }
   });
 }
 
