@@ -18,7 +18,7 @@ Unique Dental Clinic Pvt. Ltd. is an established dental practice situated at Cha
   1. **Home / Hero:** Welcoming Kathmandu operatory atmosphere with real-time open status badge.
   2. **Services & Official Fee Schedule:** Complete directory of all 40 dental services and exact fees (including Table and Card views, live search, and category filtering).
   3. **Specialized Technology Spotlight:** Single-Visit Endomotor Rotary RCT and 3-tier Zirconia classification (Monolithic, Layered, Multilayered).
-  4. **Our Doctors & Specialists:** In-depth profiles of Managing Director Dr. Barun Giri and Consultant Prosthodontist Dr. Bibek Khanal.
+  4. **Our Doctors & Specialists:** In-depth profiles of Managing Director Dr. Barun Giri, Consultant Prosthodontist Dr. Bibek Khanal, and Consultant Orthodontist (Braces Specialist) Dr. Amresh Thakur.
   5. **Location & Contact:** Interactive map embed, prominent direct call actions, and operating hours.
 
 ---
