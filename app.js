@@ -218,8 +218,31 @@ function initServiceFilters() {
   }
 
   // 4. View Switcher Toggle (Table vs Cards)
+  function enforceMobileCardsView() {
+    if (window.innerWidth <= 768) {
+      if (tableView) tableView.style.display = 'none';
+      if (cardsView) cardsView.style.display = 'grid';
+      const cardsBtn = document.getElementById('view-toggle-cards');
+      const tableBtn = document.getElementById('view-toggle-table');
+      if (cardsBtn && tableBtn) {
+        tableBtn.classList.remove('active');
+        cardsBtn.classList.add('active');
+      }
+    }
+  }
+
+  // Enforce cards view immediately on mobile
+  enforceMobileCardsView();
+  window.addEventListener('resize', enforceMobileCardsView);
+
   viewToggleBtns.forEach(toggleBtn => {
     toggleBtn.addEventListener('click', () => {
+      // On mobile view, keep cards view always active
+      if (window.innerWidth <= 768) {
+        enforceMobileCardsView();
+        return;
+      }
+
       viewToggleBtns.forEach(b => b.classList.remove('active'));
       toggleBtn.classList.add('active');
 
