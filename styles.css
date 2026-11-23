@@ -457,12 +457,13 @@ button {
 }
 
 .card-top-right {
-  top: 1.75rem;
+  top: auto;
+  bottom: 5.5rem;
   right: -1.25rem;
 }
 
 .card-bottom-left {
-  bottom: 1.75rem;
+  bottom: 1.5rem;
   left: -1.25rem;
 }
 
@@ -2064,6 +2065,10 @@ img, svg, video, iframe {
 
 /* Mobile Devices Breakpoint (<= 768px) */
 @media (max-width: 768px) {
+  .team-card-image {
+    height: 280px;
+  }
+
   /* Container standard 16-20px padding */
   .container {
     padding-left: 1.15rem; /* ~18px standard edge padding */
@@ -2217,9 +2222,10 @@ img, svg, video, iframe {
   }
 
   .hero-trust-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
     padding-top: 1.5rem;
   }
 
@@ -2572,5 +2578,257 @@ img, svg, video, iframe {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+
+
+/* ==========================================================================
+   Clinical Team Members (Profiles without images: Dr. Jyoti, Nurse Ranjeeta, Hygienist Biba)
+   ========================================================================== */
+.clinical-team-header {
+  margin: 4.5rem auto 2.5rem auto;
+}
+
+.clinical-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 992px) {
+  .clinical-team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+
+/* Healthcare Team Card Image Styling */
+.team-card-image {
+  position: relative;
+  width: 100%;
+  height: 290px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 1.35rem;
+  background: #f8fafc;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+}
+
+.team-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.team-card:hover .team-card-image img {
+  transform: scale(1.03);
+}
+
+.team-card-image .hygienist-guras-img {
+  object-position: center 25%;
+}
+
+.team-card-image .hygienist-roshni-img {
+  object-position: center 18%;
+}
+
+.team-card-image .nurse-ranjeeta-img {
+  object-position: center 20%;
+}
+
+.team-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  position: relative;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: #93c5fd;
+}
+
+.team-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  gap: 1rem;
+}
+
+.team-icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.blue-circle {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.green-circle {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.purple-circle {
+  background: #faf5ff;
+  color: #7c3aed;
+}
+
+.team-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.role-tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.blue-tag {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.green-tag {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.purple-tag {
+  background: #f3e8ff;
+  color: #6b21a8;
+}
+
+.license-chip {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--color-gray-100);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.team-member-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-navy-dark);
+  margin-bottom: 0.25rem;
+}
+
+.team-member-qual {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.team-meta-row {
+  margin-bottom: 1rem;
+}
+
+.meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  color: #0369a1;
+  background: #f0f9ff;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid #bae6fd;
+}
+
+.team-member-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.core-responsibilities-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-lg);
+  padding: 1.15rem;
+  margin-top: 0.5rem;
+}
+
+.resp-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-navy-dark);
+  margin-bottom: 0.75rem;
+}
+
+.resp-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.resp-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.45;
+}
+
+.resp-list li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.team-card-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.btn-sm-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-full);
+  padding: 0.45rem 1rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-sm-outline:hover {
+  background: var(--color-primary);
+  color: #ffffff;
 }
 
